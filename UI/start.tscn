@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cks6kpjrt0kdu"]
+
+[ext_resource type="Script" path="res://Player/user.gd" id="1_58srw"]
+[ext_resource type="Script" path="res://menu.gd" id="2_6llqg"]
+[ext_resource type="Script" path="res://UI/server.gd" id="3_48wx1"]
+[ext_resource type="Script" path="res://UI/serwer_name.gd" id="5_5i44t"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="User" type="Node" parent="."]
+script = ExtResource("1_58srw")
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_6llqg")
+
+[node name="ExitButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 428.0
+offset_right = 852.0
+offset_bottom = 481.0
+
+[node name="JoinGameButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 331.0
+offset_right = 851.0
+offset_bottom = 386.0
+
+[node name="CreateGameButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 198.0
+offset_right = 825.0
+offset_bottom = 256.0
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource("3_48wx1")
+
+[node name="Serwer Name" type="Node" parent="."]
+script = ExtResource("5_5i44t")

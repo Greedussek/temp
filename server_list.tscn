@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6afsb8otrowo"]
+
+[ext_resource type="Script" path="res://UI/client.gd" id="1_hfbn5"]
+
+[node name="Server_list" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+script = ExtResource("1_hfbn5")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 105.0
+offset_right = 513.0
+offset_bottom = 560.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 31.0
+offset_right = 418.0
+offset_bottom = 88.0

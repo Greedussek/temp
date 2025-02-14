@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://baou0jjiyd8d0"]
+
+[ext_resource type="Script" path="res://connecting_ui.gd" id="1_0mbmi"]
+
+[node name="ConnectingUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mbmi")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 497.0
+offset_bottom = 643.0
+
+[node name="Container2" type="Container" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062
+offset_left = 602.0
+offset_top = 12.0
+offset_right = 1113.68
+offset_bottom = 601.824
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 547.0
+offset_right = 705.0
+offset_bottom = 607.0
+
+[connection signal="ready" from="." to="." method="_on_ready"]
