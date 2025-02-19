@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyarcj2t15d58"]
+
+[ext_resource type="Script" path="res://UI/menu.gd" id="1_ejqbk"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ejqbk")
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 428.0
+offset_right = 852.0
+offset_bottom = 481.0
+
+[node name="JoinGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 331.0
+offset_right = 851.0
+offset_bottom = 386.0
+
+[node name="CreateGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 198.0
+offset_right = 825.0
+offset_bottom = 256.0

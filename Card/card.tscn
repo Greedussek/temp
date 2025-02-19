@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6py1kc27s2aq"]
+
+[ext_resource type="Script" path="res://Card/node_2d.gd" id="1_6nmva"]
+[ext_resource type="Texture2D" uid="uid://b6xfw04vdl8xh" path="res://icon.svg" id="2_c264x"]
+[ext_resource type="Script" path="res://Card/sprite_2d.gd" id="3_jpwjj"]
+[ext_resource type="Script" path="res://Card/area_Wo.gd" id="4_p8pt3"]
+[ext_resource type="Texture2D" uid="uid://f7hnux656qyn" path="res://Thumb-Up-Hover.png" id="5_lboh7"]
+[ext_resource type="Script" path="res://Card/area_2d.gd" id="6_cja5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7vu1"]
+size = Vector2(80.254, 119.883)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiv57"]
+size = Vector2(40.4762, 71.8147)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uha4i"]
+radius = 45.6029
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0qfs"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(97, 82)
+script = ExtResource("1_6nmva")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.5, 91.4999)
+scale = Vector2(0.945313, 0.773436)
+texture = ExtResource("2_c264x")
+script = ExtResource("3_jpwjj")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+script = ExtResource("4_p8pt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-20.3175, -0.936588)
+shape = SubResource("RectangleShape2D_d7vu1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(39.6984, 23.1073)
+shape = SubResource("RectangleShape2D_oiv57")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(36, 61)
+scale = Vector2(0.267046, 0.238636)
+texture = ExtResource("5_lboh7")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2"]
+script = ExtResource("6_cja5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
+position = Vector2(-1.49152, 0)
+shape = SubResource("CircleShape2D_uha4i")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -98.0
+offset_top = 110.0
+offset_right = 96.0
+offset_bottom = 146.0
+text = "kllllo"
+label_settings = SubResource("LabelSettings_d0qfs")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
