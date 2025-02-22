@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://0l2wkbqbqvdd"]
+[gd_scene load_steps=4 format=3 uid="uid://0l2wkbqbqvdd"]
 
 [ext_resource type="PackedScene" uid="uid://c6py1kc27s2aq" path="res://Card/card.tscn" id="1_3p7ac"]
 [ext_resource type="Script" path="res://Map/map.gd" id="1_j4gjh"]
-[ext_resource type="PackedScene" uid="uid://bl2opakjk6nyg" path="res://Map/world.tscn" id="2_fx4ed"]
-[ext_resource type="PackedScene" uid="uid://btkdeu0y03cfa" path="res://Map/play.tscn" id="4_0x0hw"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gsmun"]
+properties/0/path = NodePath(".:temp")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:temp2")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:temp3")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_j4gjh")
@@ -14,7 +23,7 @@ position = Vector2(584, 104)
 [node name="Node2D3" parent="." instance=ExtResource("1_3p7ac")]
 position = Vector2(584, -24)
 
-[node name="Node2D" parent="." instance=ExtResource("1_3p7ac")]
+[node name="Node2D1" parent="." instance=ExtResource("1_3p7ac")]
 position = Vector2(280, -24)
 
 [node name="Node2D2" parent="." instance=ExtResource("1_3p7ac")]
@@ -83,8 +92,7 @@ position = Vector2(736, 488)
 [node name="Node2D25" parent="." instance=ExtResource("1_3p7ac")]
 position = Vector2(888, 488)
 
-[node name="World" parent="." instance=ExtResource("2_fx4ed")]
-
-[node name="Play" parent="." instance=ExtResource("4_0x0hw")]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_gsmun")
 
 [connection signal="ready" from="." to="." method="_on_ready"]

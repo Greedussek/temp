@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ugly6lsgubg4"]
+
+[ext_resource type="Script" path="res://new_start.gd" id="1_jpq4c"]
+[ext_resource type="Script" path="res://Player/user.gd" id="2_2rtcp"]
+[ext_resource type="PackedScene" uid="uid://cks6kpjrt0kdu" path="res://UI/start.tscn" id="3_1v175"]
+
+[node name="NewStart" type="Node2D"]
+script = ExtResource("1_jpq4c")
+
+[node name="User" type="Node" parent="."]
+script = ExtResource("2_2rtcp")
+
+[node name="Start" parent="." instance=ExtResource("3_1v175")]

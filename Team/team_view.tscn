@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv0maxk3b3qr5"]
+
+[ext_resource type="Script" path="res://Team/team_view.gd" id="1_2blrj"]
+[ext_resource type="PackedScene" uid="uid://dupxbln4dp603" path="res://Team/team_red.tscn" id="2_ukei4"]
+[ext_resource type="PackedScene" uid="uid://buk1186ptdv42" path="res://Team/team_blue.tscn" id="3_4gbju"]
+
+[node name="TeamView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2blrj")
+PlayersInfo = ExtResource("2_ukei4")
+
+[node name="TeamRed" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 94.0
+offset_right = 398.0
+offset_bottom = 598.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TeamRed"]
+layout_mode = 0
+offset_top = 38.0
+offset_right = 325.0
+offset_bottom = 502.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TeamRed"]
+layout_mode = 0
+offset_right = 327.0
+offset_bottom = 23.0
+
+[node name="name" type="Label" parent="TeamRed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="delete" type="Label" parent="TeamRed/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="TeamBlue" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 90.0
+offset_right = 772.0
+offset_bottom = 594.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TeamBlue"]
+layout_mode = 0
+offset_top = 38.0
+offset_right = 330.0
+offset_bottom = 502.0
+
+[node name="HBoxContainer" parent="TeamBlue/VBoxContainer" instance=ExtResource("3_4gbju")]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TeamBlue"]
+layout_mode = 0
+offset_right = 327.0
+offset_bottom = 23.0
+
+[node name="name" type="Label" parent="TeamBlue/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="delete" type="Label" parent="TeamBlue/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 134.0
+offset_right = 1086.0
+offset_bottom = 216.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

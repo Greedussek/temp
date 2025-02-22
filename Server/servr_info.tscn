@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba2xw4rs2nxfr"]
+
+[ext_resource type="Script" path="res://Server/servr_info.gd" id="1_q7n78"]
+
+[node name="ServrInfo" type="HBoxContainer"]
+script = ExtResource("1_q7n78")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="Adres" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "IP Address
+"
+
+[node name="Slots" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slots
+"
+
+[node name="Join" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="button_down" from="Join" to="." method="_on_button_button_down"]

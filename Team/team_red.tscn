@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dupxbln4dp603"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="delete" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

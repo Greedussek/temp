@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cks6kpjrt0kdu"]
+[gd_scene load_steps=8 format=3 uid="uid://cks6kpjrt0kdu"]
 
-[ext_resource type="Script" path="res://Player/user.gd" id="1_58srw"]
-[ext_resource type="Script" path="res://Server/server.gd" id="3_48wx1"]
+[ext_resource type="Script" path="res://UI/start.gd" id="1_wxx3h"]
+[ext_resource type="PackedScene" uid="uid://bjm1enmatc8e5" path="res://Player/Player.tscn" id="2_sgfmg"]
 [ext_resource type="PackedScene" uid="uid://dyarcj2t15d58" path="res://UI/menu.tscn" id="4_41jjf"]
 [ext_resource type="PackedScene" uid="uid://d3clius4d2khx" path="res://Server/MultiplayeerControler.tscn" id="5_fw1jk"]
+[ext_resource type="PackedScene" uid="uid://cqpcr38d26mdd" path="res://Server/ServerBrowser.tscn" id="6_cehrh"]
+[ext_resource type="Script" path="res://GameControl.gd" id="6_fvl7o"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mjxyn"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -12,14 +16,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wxx3h")
+PlayerScene = ExtResource("2_sgfmg")
 
 [node name="MultiplayeerControler" parent="." instance=ExtResource("5_fw1jk")]
 layout_mode = 1
 
-[node name="User" type="Node" parent="."]
-script = ExtResource("1_58srw")
-
 [node name="Menu" parent="." instance=ExtResource("4_41jjf")]
 
-[node name="Server" type="Node" parent="."]
-script = ExtResource("3_48wx1")
+[node name="ServerBrowser" parent="." instance=ExtResource("6_cehrh")]
+visible = false
+layout_mode = 1
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_fvl7o")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_mjxyn")
+
+[connection signal="joinGame" from="ServerBrowser" to="MultiplayeerControler" method="JoinByIP"]

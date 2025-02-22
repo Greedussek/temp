@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqpcr38d26mdd"]
+[gd_scene load_steps=4 format=3 uid="uid://cqpcr38d26mdd"]
 
 [ext_resource type="Script" path="res://Server/server_browser.gd" id="1_5s5lk"]
+[ext_resource type="PackedScene" uid="uid://ba2xw4rs2nxfr" path="res://Server/servr_info.tscn" id="2_10r35"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qf65q"]
 font_size = 40
@@ -13,11 +14,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5s5lk")
+serverInfo = ExtResource("2_10r35")
 
 [node name="BroadcastTimer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 150.0
 offset_right = 770.0
@@ -29,31 +32,8 @@ offset_top = 44.0
 offset_right = 720.0
 offset_bottom = 435.0
 
-[node name="ServrInfo" type="HBoxContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Panel/VBoxContainer/ServrInfo"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "name"
-
-[node name="Adres" type="Label" parent="Panel/VBoxContainer/ServrInfo"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "IP Address
-"
-
-[node name="Slots" type="Label" parent="Panel/VBoxContainer/ServrInfo"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Slots
-"
-
-[node name="Button" type="Button" parent="Panel/VBoxContainer/ServrInfo"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Tags" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
 offset_right = 724.0
 offset_bottom = 23.0
 
@@ -81,12 +61,14 @@ text = "Join"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 826.0
 offset_top = 186.0
 offset_right = 1090.0
 offset_bottom = 266.0
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 46.0
 offset_top = 58.0
 offset_right = 1082.0
@@ -97,5 +79,4 @@ horizontal_alignment = 1
 structured_text_bidi_override_options = [null, null, null, null, null, null]
 
 [connection signal="timeout" from="BroadcastTimer" to="." method="_on_broadcast_timer_timeout"]
-[connection signal="button_down" from="Panel/VBoxContainer/ServrInfo/Button" to="." method="joinbyIp"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -5,21 +5,25 @@ extends Control
 @onready var exit_button = $ExitButton
 
 func _ready():
+	print(GameControl.Players)
 	var start_game = "res://Server/ServerBrowser.tscn"
 	create_game_button.pressed.connect(_on_create_game_pressed)
 	join_game_button.pressed.connect(_on_join_game_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)
 
 func _on_create_game_pressed():
-	print("Tworzenie nowej gry...")
 	$"../MultiplayeerControler".request_server_name()
 	self.hide()
 
 
+
 func _on_join_game_pressed():
 	print("Dołączanie do gry...")
-	$"../MultiplayeerControler".ListGame()#_on_join()
 	self.hide()
+	$"../MultiplayeerControler"._on_join_button_down()
+	#$"../ServerBrowser".show()
+	#$"../ServerBrowser".setUp()
+	
 	 # Załaduj scenę dołączania do gry
 
 func _on_exit_pressed():
